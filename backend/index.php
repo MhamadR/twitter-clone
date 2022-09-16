@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include "./backend/connection.php";
+    include "/backend/connection.php";
     include "/backend/user.php";
     include "/backend/tweet.php";
     include "/backend/follow.php";
