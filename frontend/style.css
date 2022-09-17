@@ -411,3 +411,29 @@ img {
     margin-top: 50px;
   }
 }
+
+@media screen and (min-width: 1000px) {
+  .login-container {
+    flex-flow: row-reverse;
+    width: 100vw;
+    justify-content: flex-end;
+  }
+
+  .login-sections {
+    margin-left: 30px;
+  }
+
+  .login-cover-image {
+    width: 54vw;
+    height: 93vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+  }
+
+  .login-sections h1 .title-break {
+    display: inline;
+  }
+}
+
+/* End of Login Page */
