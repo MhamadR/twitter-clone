@@ -5,7 +5,7 @@
     include "/backend/tweet.php";
     include "/backend/follow.php";
     include "backend/block.php";
-    global $conn
+    global $conn;
 
     $getFromUser = new User($conn);
     $getFromTweet = new Tweet($conn);
