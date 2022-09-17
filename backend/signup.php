@@ -28,4 +28,6 @@ if(isset($_POST['next'])){
   }
 }
 ?>
+
+ <!-- signup doc html -->
   

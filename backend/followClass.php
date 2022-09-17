@@ -24,7 +24,7 @@ class Follow extends User{
  
   	}
       public function unFollow($follow_id, $user_id, $profile_id){
-		$this->delete('follow', array('sender' => $user_id, 'receiver' => $followID));
+		$this->delete('follow', array('sender' => $user_id, 'receiver' => $follow_id));
 		$this->removeFollowCount($follow_id, $user_id);
 		$query = $this->mysqli->prepare('SELECT `user_id`, `following`, `followers` FROM `users` LEFT JOIN `follow` ON `sender` = $user_id AND CASE WHEN `receiver` = $user_id THEN `sender` = `user_id` END WHERE `user_id` = $profile_id');
 		$query->execute(array("user_id" => $user_id,"profile_id" => $profile_id));
