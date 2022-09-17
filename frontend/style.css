@@ -364,5 +364,26 @@ img {
     display: inline;
   }
 }
-
 /* End of Login Page */
+
+/* Start of Homepage */
+
+/* top nav */
+.top-nav {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  border-bottom: 1px solid #f5f7f8;
+  background-color: grey;
+  padding: 3px 10px;
+}
+
+.top-nav-pp {
+  width: 20px;
+  margin-right: 10px;
+}
+
+.top-nav h5 {
+  font-weight: 600;
+}
