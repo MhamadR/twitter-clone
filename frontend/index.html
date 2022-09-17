@@ -96,5 +96,32 @@
       </div>
     </div>
     <!-- End of bottom nav -->
+    <!-- Start tweet icont -->
+    <div class="tweet-icon">
+      <img src="./Images/tweet.png" alt="tweet icon">
+    </div>
+    <!-- End tweet icon -->
+    <!-- Start of tweet page -->
+    <div class="tweet-page hide">
+      <div class="tweet-nav">
+        <div class="left-arrow" onclick="window.location.href = 'index.html';">&#8592</div>
+        <button class="tweet-btn" >Tweet</button>
+      </div>
+      <div class="tweet-container">
+        <div class="tweet-pp">
+          <img src="./Images/blank_pp.png" alt="profile pic">
+        </div>
+        <div class="tweet-content">
+          <textarea 
+          class="tweet-text" oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"' rows="3" placeholder="What's happening?"></textarea>
+          <div class="tweet-content-break"></div>
+          <div class="image-icon">
+            <img src="./Images/image-icon.png" alt="image icon">
+          </div>
+        </div>
+      </div>
+    </div>
+        <!-- End of tweet page -->
+
   </body>
 </html>
