@@ -104,6 +104,32 @@
       </div>
     </div>
     <!-- End of Sign up pop up -->
+    <!-- Start of Sign in pop up -->
+    <div class="login-popup signin-popup hide" id="signin-popup">
+      <div
+        class="close-popup-container"
+        onclick="hideElement('#signin-popup'); hideElement('.mask')"
+      >
+        <div class="close-popup"></div>
+      </div>
+      <div class="signin-logo">
+        <img src="./Images/twitter-logo.png" alt="twitter logo" />
+      </div>
+      <div class="popup-content popup-content-sign-in">
+        <h4>Sign in to Twitter</h4>
+        <form action="#">
+          <input type="email" placeholder="Email" />
+          <input type="password" placeholder="Password" />
+          <input
+            type="submit"
+            class="signin-btn btn btn-blue"
+            value="Sign up"
+          />
+        </form>
+        <p>Don't have an account? <span class="twitter-blue">Sign up</span></p>
+      </div>
+    </div>
+    <!-- End of Sign in pop up -->
     </div>
   </body>
 </html>
