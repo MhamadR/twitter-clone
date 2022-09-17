@@ -1,10 +1,10 @@
-function hideElement(elem) {
+function hideElement(elem, className) {
   const element = document.querySelector(elem);
-  element.classList.add("hide");
+  element.classList.add(className);
 }
 
-function showElement(elem) {
+function showElement(elem, className) {
   const element = document.querySelector(elem);
   console.log(element);
-  element.classList.remove("hide");
+  element.classList.remove(className);
 }
