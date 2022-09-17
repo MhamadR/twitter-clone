@@ -79,6 +79,31 @@
       <div class="login-copyright">© 2022 Twitter, Inc.</div>
     </footer>
     <!-- End of Footer -->
+    <!-- Start of Sign up pop up -->
+    <div class="mask hide"></div>
+    <div class="login-popup hide" id="signup-popup">
+      <div
+        class="close-popup-container"
+        onclick="hideElement('#signup-popup'); hideElement('.mask')"
+      >
+        <div class="close-popup"></div>
+      </div>
+      <div class="popup-content">
+        <h4>Create your account</h4>
+        <form action="#">
+          <input type="text" placeholder="Name" />
+          <input type="text" placeholder="Username" />
+          <input type="email" placeholder="Email" />
+          <input type="password" placeholder="Password" />
+          <input
+            type="submit"
+            class="signup-btn btn btn-blue"
+            value="Sign up"
+          />
+        </form>
+      </div>
+    </div>
+    <!-- End of Sign up pop up -->
     </div>
   </body>
 </html>
