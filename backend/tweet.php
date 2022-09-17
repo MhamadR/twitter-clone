@@ -49,6 +49,13 @@ class Tweet extends User{
 		$mk->execute();
 		return $mk->fetch(mysqli);
 	}
+    public function countLikes($user_id){
+		$mk = $this->mysqli->prepare("SELECT COUNT(`like_id`) AS `totalLikes` FROM `likes` WHERE `liked_by` = $user_id");
+		$mk->bindParam("i", $user_id);
+		$mk->execute();
+		$count = $mk->fetch(mysqli);
+		echo $count->totalLikes;
+	}
 
 
 
