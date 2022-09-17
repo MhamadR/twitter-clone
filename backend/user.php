@@ -58,11 +58,11 @@
             $value = ':'.implode(', :',array_keys($field));
             $sql = "INSERT INTO {$table} ({$columns}) VALUES ({$value})";
 
-            if($mk = $this->mysqli->prepare($sql)){
+            if($query = $this->mysqli->prepare($sql)){
                 foreach($field as $key =>$data){
-                    $mk->bindValue(':'.$key,$data);
+                    $query->bindValue(':'.$key,$data);
                 }
-                $mk->execute();
+                $query->execute();
                 return $this->mysqli->lastInsertId();
             }
             
@@ -79,19 +79,19 @@
         //         $i++;
         //     }
         //     $sql = "UPDATE {$table} SET {$columns} WHERE `user_id` = {$user_id}";
-        //     if($mk = $this->pdo->prepare($sql)){
+        //     if($query = $this->pdo->prepare($sql)){
         //         foreach ($fields as $key => $value) {
-        //             $mk->bindValue(':'.$key, $value);
+        //             $query->bindValue(':'.$key, $value);
         //         }
-        //         $mk->execute();
+        //         $query->execute();
         //     }
         // }
         public function checkUsername($username){
-            $mk = $this->mysqli->prepare("SELECT username FROM users WHERE username = $username");
-            $mk->bind_param('s',$username);
-            $mk->execute();
+            $query = $this->mysqli->prepare("SELECT username FROM users WHERE username = $username");
+            $query->bind_param('s',$username);
+            $query->execute();
 
-            $count =$mk->$rowCount();
+            $count =$query->$rowCount();
             if($count > 0){
                 return true;
             }else{
@@ -99,13 +99,13 @@
             }
         }
         public function checkPassword($password){
-            $mk = $this->mysqli->prepare("SELECT password FROM users WHERE password = $password");
+            $query = $this->mysqli->prepare("SELECT password FROM users WHERE password = $password");
             $passHash = hash("sha256", $_POST["password"]);
             $password .= "a";
-            $mk->bind_param('s',$passHash);
-            $mk->execute();
+            $query->bind_param('s',$passHash);
+            $query->execute();
 
-            $count = $mk->rowCount();
+            $count = $query->rowCount();
             if($count > 0){
                 return true;
             }else{
@@ -114,11 +114,11 @@
         }
 
         public function checkEmail($email){
-            $mk = $this->mysqli->prepare("SELECT email FROM users WHERE email = $email");
-            $mk->bind_param('s',$email);
-            $mk->execute();
+            $query = $this->mysqli->prepare("SELECT email FROM users WHERE email = $email");
+            $query->bind_param('s',$email);
+            $query->execute();
 
-            $count = $mk->rowCount();
+            $count = $query->rowCount();
             if($count > 0){
                 return true;
             }else{
