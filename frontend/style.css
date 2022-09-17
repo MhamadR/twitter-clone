@@ -292,6 +292,14 @@ img {
 }
 
 @media screen and (min-width: 687px) {
+  .login-sections {
+    margin-left: 30%;
+  }
+
+  .login-sections h1 .title-break {
+    display: inline;
+  }
+
   .login-popup {
     width: 545px;
     height: 590px;
@@ -341,11 +349,12 @@ img {
 
   .login-sections {
     margin-left: 30px;
+    width: 45%;
   }
 
   .login-cover-image {
-    width: 54vw;
-    height: 93vh;
+    width: 55%;
+    height: 94vh;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
