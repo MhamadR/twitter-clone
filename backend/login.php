@@ -25,18 +25,18 @@ if(!empty($email) || !empty($password)) {
 ?>
 <div>
     <form method="post" autocomplete="off">
-        
     <h1>Log in to twitter</h1>
     <div>
         <input name="email" type="text" placeholder="Email" />
         <input name="password" type="password" placeholder="Password"/>
-        
     <input name="login" type="submit" value="login">
     </div>
 <?php
+
     if(isset($errorMsg)){
-        echo '<div> '.$errorMsg.' </div>';
+        echo '<div role="alert"> '.$errorMsg.' </div>';
     }
+    
 ?> 
     
     </form>

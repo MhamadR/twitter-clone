@@ -27,5 +27,5 @@ if(isset($_POST['next'])){
     $error = "Please enter your username to choose";
   }
 }
-  ?>
+?>
   

@@ -13,8 +13,9 @@ class Follow extends User{
 		$query->execute();
 		return $query->fetch_assoc();
 	}
+
     public function follow($follow_id, $user_id, $profile_id){
-		$this->create('follow', array('sender' => $user_id, 'receiver' => $follow_id));
+		$this->create('follows', array('sender' => $user_id, 'receiver' => $follow_id));
 		$this->addFollowCount($follow_id, $user_id);
 		$query = $this->mysqli->prepare('SELECT `user_id`, `following`, `followers` FROM `users` LEFT JOIN `follow` ON `sender` = $user_id AND CASE WHEN `receiver` = $user_id THEN `sender` = `user_id` END WHERE `user_id` = $profile_id');
 		$query->execute(array("user_id" => $user_id,"profile_id" => $profile_id));
@@ -42,20 +43,20 @@ class Follow extends User{
 		$data = $this->checkFollow($profile_id, $user_id);
 		if($this->loggedIn()===true){
 
-			if($profileID != $user_id){
+			if($profile_id != $user_id){
 				if(isset($data['receiver']) && $data['receiver'] === $profile_id){
 					//Following btn
-					return "<button class='f-btn following-btn follow-btn' data-follow='".$profile_id."' data-profile='".$follow_id."' style='outline:none;'>Following</button>";
+					return "<button data-follow='".$profile_id."' data-profile='".$follow_id.">Following</button>";
 				}else{
 					//Follow button
-					return "<button class='f-btn follow-btn' data-follow='".$profile_id."' data-profile='".$follow_id."' style='outline:none;'><i class='fa fa-user-plus'></i>Follow</button>";
+					return "<button data-follow='".$profile_id."' data-profile='".$follow_id.">Follow</button>";
 				}
 			}else{
 				//edit button
-				return "<button class='new-btn' onclick=location.href='".BASE_URL."profileEdit.php' style='outline:none;'>Edit Profile</button>";
+				return "<button onclick=location.href='".BASE_URL."edit_profile.html'>Edit Profile</button>";
 			}
 		}else{
-			return "<button style='outline:none;' class='f-btn' onclick=location.href='".BASE_URL."index.html'><i class='fa fa-user-plus'></i>Follow</button>";
+			return "<button onclick=location.href='".BASE_URL."index.html'>Follow</button>";
 		}
 	}
 
