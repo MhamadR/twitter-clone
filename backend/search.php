@@ -4,7 +4,7 @@ if(isset($_POST["search"]) && !empty($_POST["search"])){
     $search = $getFromUser->checkInput($_POST["search"]);
     $result = $getFromUser->search($search);
     if(!empty($result)){
-        echo '<div><ul>'
+        echo '<div><ul>';
         foreach($result as $user){
             echo '
             <li>
