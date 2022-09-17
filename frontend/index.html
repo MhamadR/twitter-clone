@@ -24,6 +24,7 @@
       >
         <img src="./Images/blank_pp.png" alt="profile picture" />
       </div>
+      <div class="arrow hide" onclick="window.location.href = 'index.html';">&#8592</div>
       <h5>Home</h5>
       <div class="search-bar hide">
         <div class="search-pic-container">
@@ -35,6 +36,7 @@
           id="search"
           autocomplete="off"
           placeholder="Search Twitter"
+          onclick="removeClass('.top-nav .arrow', 'hide'); addClass('.top-nav .top-nav-pp', 'hide')"
         />
       </div>
     </div>
@@ -84,10 +86,13 @@
     <!-- Start of bottom nav -->
     <div class="bottom-nav">
       <div class="bottom-nav-pp" onclick="window.location.href = 'index.html';">
-        <img src="./Images/home.png" alt="profile picture" />
+        <img src="./Images/home.png" alt="home icon" />
       </div>
-      <div class="bottom-nav-pp">
-        <img src="./Images/search.png" alt="profile picture" />
+      <div
+        class="bottom-nav-pp"
+        onclick="removeClass('.search-bar', 'hide'); addClass('.top-nav h5', 'hide')"
+      >
+        <img src="./Images/search.png" alt="search icon" />
       </div>
     </div>
     <!-- End of bottom nav -->
