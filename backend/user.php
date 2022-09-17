@@ -26,7 +26,7 @@
             $query->execute();
 
             $count = $query->rowCount();
-            $user = $query->fetch(mysqli::FETCH_OBJ);
+            $user = $query->fetch_assoc();
 
             if($count > 0){
                 $_SESSION['username'] = $user->username;
