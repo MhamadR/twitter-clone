@@ -28,7 +28,7 @@
           <div
             class="login-btn btn btn-blue"
             id="signup"
-            onclick="showElement('#signup-popup'); showElement('.mask');"
+            onclick="showElement('#signup-popup', 'hide'); showElement('.mask', 'hide');"
           >
             Sign up with email
           </div>
@@ -44,7 +44,7 @@
           <div
             class="login-btn btn twitter-blue"
             id="signin"
-            onclick="showElement('#signin-popup'); showElement('.mask')"
+            onclick="showElement('#signin-popup', 'hide'); showElement('.mask', 'hide')"
           >
             Sign in
           </div>
@@ -85,7 +85,7 @@
     <div class="login-popup hide" id="signup-popup">
       <div
         class="close-popup-container"
-        onclick="hideElement('#signup-popup'); hideElement('.mask')"
+        onclick="hideElement('#signup-popup', 'hide'); hideElement('.mask', 'hide')"
       >
         <div class="close-popup"></div>
       </div>
@@ -109,7 +109,7 @@
     <div class="login-popup signin-popup hide" id="signin-popup">
       <div
         class="close-popup-container"
-        onclick="hideElement('#signin-popup'); hideElement('.mask')"
+        onclick="hideElement('#signin-popup', 'hide'); hideElement('.mask', 'hide')"
       >
         <div class="close-popup"></div>
       </div>
