@@ -353,3 +353,20 @@ img {
     display: inline;
   }
 }
+@media screen and (min-width: 500px) {
+  .login-sections h1 {
+    font-size: 4rem;
+  }
+
+  .login-sections h1 .title-break {
+    display: block;
+  }
+
+  .login-sections h2 {
+    font-size: 2.5rem;
+  }
+
+  .login-footer {
+    width: 100%;
+  }
+}
