@@ -18,14 +18,28 @@
   <body>
     <!-- Start of top nav -->
     <div class="top-nav">
-      <div class="top-nav-pp">
+      <div
+        class="top-nav-pp"
+        onclick="addClass('.sidebar-container','show'), removeClass('.mask-sidebar-container', 'hide')"
+      >
         <img src="./Images/blank_pp.png" alt="profile picture" />
       </div>
       <h5>Home</h5>
     </div>
     <!-- End of top nav -->
+    <!-- on sidebar open, darken screen -->
+    <div class="mask-sidebar-container hide"></div>
+    <!------------------------------------>
     <!-- Start of sidebar menu -->
     <div class="sidebar-container">
+      <div class="close-sidebar">
+        <div
+          class="close-popup-container"
+          onclick="removeClass('.sidebar-container', 'show'), addClass('.mask-sidebar-container', 'hide')"
+        >
+          <div class="close-popup"></div>
+        </div>
+      </div>
       <!-- Start of sidebar content -->
       <div class="sidebar-content">
         <!-- Start of sidebar info -->
@@ -38,13 +52,13 @@
           <div class="follows">255 followings 232 followers</div>
         </section>
         <!-- End of sidebar info -->
-        <section class="sidebar-menu">
+        <section class="sidebar-menu sidebar-profile">
           <div class="sidebar-profile-pp">
             <img src="./Images/blank_pp.png" alt="profile picture" />
           </div>
           <p>Profile</p>
         </section>
-        <section class="sidebar-menu">
+        <section class="sidebar-menu sidebar-logout">
           <div class="sidebar-logout">
             <p>Log out</p>
           </div>
