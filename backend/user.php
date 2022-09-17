@@ -20,7 +20,7 @@
         }
         public function login($username, $email, $password){
             $passHash = hash("sha256", $_POST["password"]);
-            $pass .= "a";
+            $password .= "a";
             $query = $this->mysqli->prepare("SELECT `username` FROM `users` WHERE `email` = :email AND `password` = :password");
             $query->bind_param("sss", $username, $email,$password);
             $query->execute();
@@ -58,34 +58,75 @@
             $value = ':'.implode(', :',array_keys($field));
             $sql = "INSERT INTO {$table} ({$columns}) VALUES ({$value})";
 
-            if($stmt = $this->mysqli->prepare($sql)){
+            if($mk = $this->mysqli->prepare($sql)){
                 foreach($field as $key =>$data){
-                    $stmt->bindValue(':'.$key,$data);
+                    $mk->bindValue(':'.$key,$data);
                 }
-                $stmt->execute();
+                $mk->execute();
                 return $this->mysqli->lastInsertId();
             }
             
         }
-        public function update($table, $user_id, $fields){
-            $columns = '';
-            $i       = 1;
+        // public function update($table, $user_id, $fields){
+        //     $columns = '';
+        //     $i       = 1;
     
-            foreach ($fields as $name => $value) {
-                $columns .= "`{$name}` = :{$name} ";
-                if($i < count($fields)){
-                    $columns .= ', ';
-                }
-                $i++;
-            }
-            $sql = "UPDATE {$table} SET {$columns} WHERE `user_id` = {$user_id}";
-            if($stmt = $this->pdo->prepare($sql)){
-                foreach ($fields as $key => $value) {
-                    $stmt->bindValue(':'.$key, $value);
-                }
-                $stmt->execute();
+        //     foreach ($fields as $name => $value) {
+        //         $columns .= "`{$name}` = :{$name} ";
+        //         if($i < count($fields)){
+        //             $columns .= ', ';
+        //         }
+        //         $i++;
+        //     }
+        //     $sql = "UPDATE {$table} SET {$columns} WHERE `user_id` = {$user_id}";
+        //     if($mk = $this->pdo->prepare($sql)){
+        //         foreach ($fields as $key => $value) {
+        //             $mk->bindValue(':'.$key, $value);
+        //         }
+        //         $mk->execute();
+        //     }
+        // }
+        public function checkUsername($username){
+            $mk = $this->mysqli->prepare("SELECT username FROM users WHERE username = $username");
+            $mk->bind_param('s',$username);
+            $mk->execute();
+
+            $count =$mk->$rowCount();
+            if($count > 0){
+                return true;
+            }else{
+                return false;
             }
         }
+        public function checkPassword($password){
+            $mk = $this->mysqli->prepare("SELECT password FROM users WHERE password = $password");
+            $passHash = hash("sha256", $_POST["password"]);
+            $password .= "a";
+            $mk->bind_param('s',$passHash);
+            $mk->execute();
+
+            $count = $mk->rowCount();
+            if($count > 0){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+        public function checkEmail($email){
+            $mk = $this->mysqli->prepare("SELECT email FROM users WHERE email = $email");
+            $mk->bind_param('s',$email);
+            $mk->execute();
+
+            $count = $mk->rowCount();
+            if($count > 0){
+                return true;
+            }else{
+                return false;
+            }
+        }
+        
+
 
     
 
