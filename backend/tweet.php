@@ -43,6 +43,12 @@ class Tweet extends User{
 		$mk->bind_param("ii", $user_id,$tweet_id);
 		$mk->execute(); 
 	}
+    public function likes($user_id, $tweet_id){
+		$mk = $this->mysqli->prepare("SELECT * FROM `likes` WHERE `like_by` = $user_id AND `likeOn` = $tweet_id");
+		$mk->bind_param("ii", $user_id, $tweet_id);
+		$mk->execute();
+		return $mk->fetch(mysqli);
+	}
 
 
 
