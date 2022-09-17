@@ -4,7 +4,7 @@ class Tweet extends User{
 
     public function __construct($mysqli){
         $this->mysqli = $mysqli;
-        $this->message = new Message($this->mysqli);
+        // $this->message = new Message($this->mysqli);
     }
     public function tweets($user_id,$number){
         $query = $this->mysqli->prepare("SELECT * FROM `tweets` WHERE `tweet_by` = $user_id AND `tweetBy` IN (SELECT `receiver` FROM `follow` WHERE `sender` = $user_id) ORDER BY `tweet_id` DESC LIMIT $number");
@@ -30,9 +30,6 @@ class Tweet extends User{
 
 		$this->create('likes', array('likeBy' => $user_id, 'liked_on' => $tweet_id));
 	
-		if($get_id != $user_id){
-			$this->message->sendNotification($get_id, $user_id, $tweet_id, 'like');
-		}
     }
     public function unLike($user_id, $tweet_id, $get_id){
 		$query = $this->mysqli->prepare("UPDATE `tweets` SET `likesCount` = `likesCount`-1 WHERE `tweetID` = $tweet_id");

@@ -4,7 +4,7 @@ class Follow extends User{
 
     public function __construct($mysqli){
         $this->mysqli = $mysqli;
-        $this->message = new Message($this->mysqli);
+        // $this->message = new Message($this->mysqli);
     }
 
     public function checkFollow($follower_id, $user_id){
