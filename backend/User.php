@@ -1,5 +1,4 @@
 <?php 
-include "index.php";
     class User{
         protected $conn;
 
@@ -86,25 +85,7 @@ include "index.php";
             }
             
         }
-        // public function update($table, $user_id, $fields){
-        //     $columns = '';
-        //     $i       = 1;
     
-        //     foreach ($fields as $name => $value) {
-        //         $columns .= "`{$name}` = :{$name} ";
-        //         if($i < count($fields)){
-        //             $columns .= ', ';
-        //         }
-        //         $i++;
-        //     }
-        //     $sql = "UPDATE {$table} SET {$columns} WHERE `user_id` = {$user_id}";
-        //     if($query = $this->pdo->prepare($sql)){
-        //         foreach ($fields as $key => $value) {
-        //             $query->bindValue(':'.$key, $value);
-        //         }
-        //         $query->execute();
-        //     }
-        // }
         public function checkUsername($username){
             $query = $this->mysqli->prepare("SELECT username FROM users WHERE username = $username");
             $query->bind_param('s',$username);
