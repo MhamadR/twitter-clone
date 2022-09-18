@@ -1,10 +1,14 @@
-function hideElement(elem) {
+function addClass(elem, className) {
   const element = document.querySelector(elem);
-  element.classList.add("hide");
+  element.classList.add(className);
 }
 
-function showElement(elem) {
+function removeClass(elem, className) {
   const element = document.querySelector(elem);
-  console.log(element);
-  element.classList.remove("hide");
+  element.classList.remove(className);
+}
+
+function toggleClass(elem, className) {
+  const element = document.querySelector(elem);
+  element.classList.toggle(className);
 }
