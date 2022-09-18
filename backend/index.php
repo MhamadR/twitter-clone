@@ -1,9 +1,9 @@
 <?php
     session_start();
     include "connection.php";
-    include "userClass.php";
-    include "tweetClass.php";
-    include "followClass.php";
+    include "User.php";
+    include "Tweet.php";
+    include "Follow.php";
     
     global $conn;
 
