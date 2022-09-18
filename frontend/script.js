@@ -5,6 +5,10 @@ function addClass(elem, className) {
 
 function removeClass(elem, className) {
   const element = document.querySelector(elem);
-  console.log(element);
   element.classList.remove(className);
+}
+
+function toggleClass(elem, className) {
+  const element = document.querySelector(elem);
+  element.classList.toggle(className);
 }

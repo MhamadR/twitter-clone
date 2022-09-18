@@ -93,40 +93,36 @@
         <div class="bottom-nav-pp twitter-icon hide">
           <img src="./Images/twitter-logo.png" alt="twitter icon" />
         </div>
-        <div class="bottom-nav-content">
-          <div
-            class="bottom-nav-pp home.icon"
-            onclick="window.location.href = 'index.html';"
-          >
+        <div class="bottom-nav-content" onclick="window.location.href = 'index.html';">
+          <div class="bottom-nav-pp home.icon">
             <img src="./Images/home.png" alt="home icon" />
           </div>
           <h2>Home</h2>
         </div>
-        <div class="bottom-nav-content">
-          <div
-            class="bottom-nav-pp search-icon"
-            onclick="removeClass('.search-bar', 'hide'); addClass('.top-nav h5', 'hide')"
-          >
+        <div class="bottom-nav-content" onclick="removeClass('.search-bar', 'hide'); addClass('.top-nav h5', 'hide')">
+          <div class="bottom-nav-pp search-icon">
             <img src="./Images/search.png" alt="search icon" />
           </div>
           <h2>Explore</h2>
         </div>
-        <div class="bottom-nav-content">
+        <div class="bottom-nav-content" onclick="window.location.href = 'profile.html';">
           <div class="bottom-nav-pp profile-icon hide"">
           <img src="./Images/blank_pp.png" alt="blank profile icon" />
           </div>
           <h2>Profile</h2>
         </div>
-        <div class="bottom-nav-pp hide">
+        <!-- <div class="bottom-nav-pp hide">
         <img src="./Images/tweet.png" alt="tweet icon" />
-        </div>
-        <div class="bottom-nav-content">
+        </div> -->
+        <div class="bottom-nav-content nav-signout" onclick="toggleClass('.tooltiptext', 'visible')">
+          <div class="tooltiptext">Sign out</div>
           <div class="bottom-nav-pp signout-icon hide">
             <img src="./Images/blank_pp.png" alt="blank profile icon" /></div>
             <div class="bottom-nav-names">
               <h2>Name</h2>
               <h3>@Username</h3>
             </div>
+            <h2 class="nav-dots">...</2>
         </div>
       </div>
       <!-- End of bottom nav -->
