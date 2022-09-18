@@ -17,7 +17,6 @@
 			}
 
 			$tweet_id = $getFromUser->create('tweets', array('text' => $text, 'tweet_by' => $user_id, 'tweet_image' => $tweet_image));
-			preg_match_all("/#+([a-zA-Z0-9_]+)/i", $text);
 
 			$result['success'] = "Tweet posted";
 			echo json_encode($result);	
