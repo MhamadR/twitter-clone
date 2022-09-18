@@ -78,28 +78,33 @@
         </div>
       </div>
       <!-- End of bottom nav -->
-      <!-- Start of feed -->
-      <div class="feed-tweet tweet-container">
-        <div class="feed-tweet-pp tweet-pp">
-          <img src="./Images/blank_pp.png" alt="profile pic" />
+      <!-- Start of profile feed -->
+      <div class="profile-feed-container">
+        <div class="profile-cover-image">
+          <!-- insert cover image here -->
         </div>
-        <div class="tweet-content">
-          <textarea
-            class="tweet-text"
-            oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'
-            rows="3"
-            placeholder="What's happening?"
-          ></textarea>
-          <div class="feed-actions">
-            <div class="image-icon">
-              <img src="./Images/image-icon.png" alt="image icon" />
+        <!-- profile header -->
+        <div class="profile-header">
+          <div class="profile-pic-edit">
+            <div class="profile-pic">
+              <img src="./Images/blank_pp.png" alt="profile picture">
             </div>
-            <button class="tweet-btn">Tweet</button>
+            <div class="profile-edit-btn">Set up profile</div>
           </div>
-          <div class="tweet-content-break"></div>
+        <!-- Profile info -->
+          <div class="profile-info">
+            <h2>Name</h2>
+            <h3>@Username</h3>
+            <h3>123 Following 54 Followers</h3>
+          </div>
+
+          <div class="profile-tweets-likes">
+            <h2 class="profile-tweets">Tweets</h2>
+            <h2 class="profile-likes">Likes</h2>
+          </div>
         </div>
       </div>
-      <!-- End of feed -->
+      <!-- End of profile feed -->
       <!-- Start of right side nav -->
       <div class="right-sidebar">
         <div class="sidebar-search-bar search-bar">

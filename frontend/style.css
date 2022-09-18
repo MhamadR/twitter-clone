@@ -622,6 +622,83 @@ img {
   width: 25px;
 }
 
+/* Profile feed */
+.profile-feed-container {
+  width: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+  /* Setting a border fixes the mobile view! */
+  border: 1px solid transparent;
+  /***********************************/
+}
+
+.profile-cover-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 300px;
+  background-color: #cfd9de;
+  z-index: -1;
+}
+
+.profile-header {
+  width: 100%;
+  margin-top: 250px;
+  padding: 0 25px;
+}
+
+.profile-pic-edit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.profile-pic {
+  width: 100px;
+}
+
+.profile-pic img {
+  border: 4px solid white;
+  border-radius: 50%;
+}
+
+.profile-edit-btn {
+  margin-top: 70px;
+  cursor: pointer;
+  border: 2px solid #d5dde2;
+  border-radius: 50px;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+
+.profile-info h3 {
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.profile-info h3:last-child {
+  margin-top: 15px;
+}
+
+.profile-tweets-likes {
+  margin-top: 35px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 2px solid #fbfcfc;
+}
+
+.profile-tweets {
+  border-bottom: 5px solid #1da1f2;
+}
+
 .feed-tweet,
 .sidebar-search-bar,
 .right-sidebar,
@@ -697,6 +774,11 @@ img {
 
   .tweet-icon {
     display: none;
+  }
+
+  .profile-feed-container {
+    grid-area: 2 / 2 / 3 / 3;
+    width: 100%;
   }
 }
 
