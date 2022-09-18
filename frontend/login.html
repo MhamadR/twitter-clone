@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Twitter Clone</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <!-- Start of Login Container -->
+    <div class="login-container" id="login">
+      <!-- Start of login Sections -->
+      <div class="login-sections">
+        <div class="login-logo">
+          <img src="./Images/twitter-logo.png" alt="twitter logo" />
+        </div>
+        <h1><span class="title-break">Happening</span> now</h1>
+        <h2>Join Twitter today.</h2>
+        <div class="sign-up-section">
+          <div
+            class="login-btn btn btn-blue"
+            id="signup"
+            onclick="showElement('#signup-popup'); showElement('.mask');"
+          >
+            Sign up with email
+          </div>
+          <p>
+            By signing up, you agree to the
+            <a href="#" class="links twitter-blue">Terms of Service</a> and
+            <a href="#" class="links twitter-blue">Privacy Policy</a>, including
+            <a href="#" class="links twitter-blue">Cookie Use. </a>
+          </p>
+        </div>
+        <div class="sign-in-section">
+          <h3>Already have an account?</h3>
+          <div
+            class="login-btn btn twitter-blue"
+            id="signin"
+            onclick="showElement('#signin-popup'); showElement('.mask')"
+          >
+            Sign in
+          </div>
+        </div>
+      </div>
+      <!-- End of Login Sections -->
+
+      <!-- Start of Cover Image -->
+      <div class="login-cover-image"></div>
+    </div>
+    <!-- End of Cover Image -->
+    <!-- End of Login Container -->
+
+    <!-- Start of Footer -->
+    <footer class="login-footer">
+      <a href="#" class="links resource-links">About </a>
+      <a href="#" class="links resource-links">Help Center </a>
+      <a href="#" class="links resource-links">Terms of Service </a>
+      <a href="#" class="links resource-links">Privacy Policy </a>
+      <a href="#" class="links resource-links">Cookie Policy </a>
+      <a href="#" class="links resource-links">Accessibility </a>
+      <a href="#" class="links resource-links">Ads info </a>
+      <a href="#" class="links resource-links">Blog </a>
+      <a href="#" class="links resource-links">Status </a>
+      <a href="#" class="links resource-links">Careers </a>
+      <a href="#" class="links resource-links">Brand Resources </a>
+      <a href="#" class="links resource-links">Advertising </a>
+      <a href="#" class="links resource-links">Marketing </a>
+      <a href="#" class="links resource-links">Twitter for Business </a>
+      <a href="#" class="links resource-links">Developers </a>
+      <a href="#" class="links resource-links">Directory </a>
+      <a href="#" class="links resource-links">Settings </a>
+      <div class="login-copyright">© 2022 Twitter, Inc.</div>
+    </footer>
+    <!-- End of Footer -->
+    <!-- Start of Sign up pop up -->
+    <div class="mask hide"></div>
+    <div class="login-popup hide" id="signup-popup">
+      <div
+        class="close-popup-container"
+        onclick="hideElement('#signup-popup'); hideElement('.mask')"
+      >
+        <div class="close-popup"></div>
+      </div>
+      <div class="popup-content">
+        <h4>Create your account</h4>
+        <form action="#">
+          <input type="text" placeholder="Name" />
+          <input type="text" placeholder="Username" />
+          <input type="email" placeholder="Email" />
+          <input type="password" placeholder="Password" />
+          <input
+            type="submit"
+            class="signup-btn btn btn-blue"
+            value="Sign up"
+          />
+        </form>
+      </div>
+    </div>
+    <!-- End of Sign up pop up -->
+    <!-- Start of Sign in pop up -->
+    <div class="login-popup signin-popup hide" id="signin-popup">
+      <div
+        class="close-popup-container"
+        onclick="hideElement('#signin-popup'); hideElement('.mask')"
+      >
+        <div class="close-popup"></div>
+      </div>
+      <div class="signin-logo">
+        <img src="./Images/twitter-logo.png" alt="twitter logo" />
+      </div>
+      <div class="popup-content popup-content-sign-in">
+        <h4>Sign in to Twitter</h4>
+        <form action="#">
+          <input type="email" placeholder="Email" />
+          <input type="password" placeholder="Password" />
+          <input
+            type="submit"
+            class="signin-btn btn btn-blue"
+            value="Sign up"
+          />
+        </form>
+        <p>Don't have an account? <span class="twitter-blue">Sign up</span></p>
+      </div>
+    </div>
+    <!-- End of Sign in pop up -->
+  </body>
+</html>
