@@ -2,7 +2,7 @@
 if(isset($_GET['step']) === true && empty($_GET['step']) === false){
 include '../backend/index.php';
 if (isset($_SESSION['user_id']) === false) {
-  header('Location: ../index.html');
+  header('Location: frontend/login.html');
 }
 
 $user_id = $_SESSION['user_id'];
