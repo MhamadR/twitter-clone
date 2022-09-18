@@ -1,3 +1,33 @@
+<?php
+include '/backend/connection.php';
+$user_id = $_SESSION['user_id'];
+$user = $getFromUser->userData( $user_id );
+
+if ( $getFromUser->loggedIn() === false ) {
+    header( 'Location: '.BASE_URL.'index.php' );
+}
+
+if ( isset( $_POST['tweet'] ) ) {
+    $status = $getFromUser->checkInput( $_POST['status'] );
+    $tweet_image = '';
+
+    if ( !empty( $status ) or !empty( $_FILES['file']['name'][0] ) ) {
+        if ( !empty( $_FILES['file']['name'][0] ) ) {
+            $tweet_image = $getFromUser->uploadImage( $_FILES['file'] );
+        }
+
+        if ( strlen( $status ) > 280 ) {
+            $error = 'The text of your tweet is too long';
+        }
+        $tweet_id = $getFromUser->create( 'tweets', array( 'status' => $status, 'tweet_by' => $user_id, 'tweet_image' => $tweet_image) );
+
+        header( 'Location: home.php' );
+    } else {
+        $error = 'Type or choose image to tweet';
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -65,7 +95,7 @@
           <!-- Start of sidebar info -->
           <section class="sidebar-info">
             <div class="sidebar-pp">
-              <img src="./Images/blank_pp.png" alt="profile picture" />
+              <img src="<?php echo $user->profileImage; ?>" alt="profile picture" />
             </div>
             <div class="name">Name</div>
             <div class="username">@username</div>
@@ -129,7 +159,7 @@
       <!-- Start of feed -->
       <div class="feed-tweet tweet-container">
         <div class="feed-tweet-pp tweet-pp">
-          <img src="./Images/blank_pp.png" alt="profile pic" />
+          <img src="<?php echo $user->profileImage; ?>" alt="profile pic" />
         </div>
         <div class="tweet-content">
           <textarea
@@ -145,6 +175,10 @@
             <button class="tweet-btn">Tweet</button>
           </div>
           <div class="tweet-content-break"></div>
+          <div>
+            <?php $getFromTweet->tweets( $user_id);
+            ?>
+          </div>
         </div>
       </div>
       <!-- End of feed -->
