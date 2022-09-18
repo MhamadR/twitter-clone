@@ -1,4 +1,5 @@
 <?php
+include "UserClass.php";
 class Tweet extends User{
     protected $message;
 

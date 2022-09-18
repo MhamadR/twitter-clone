@@ -1,4 +1,5 @@
 <?php
+include "UserClass.php";
 class Follow extends User{
     // protected $message;
 
