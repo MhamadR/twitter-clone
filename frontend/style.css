@@ -71,13 +71,17 @@ img {
 /* Start of Login page */
 .login-container {
   width: 100%;
+  height: 89vh;
   display: flex;
   flex-flow: column;
   align-items: center;
+  justify-content: space-between;
 }
 
 .login-sections {
   width: 90%;
+  height: 600px;
+  padding-top: 150px;
 }
 
 .login-logo {
@@ -123,7 +127,7 @@ img {
 
 .login-cover-image {
   width: 100vw;
-  height: 400px;
+  height: 40%;
   background-image: url(./Images/twitter-login.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -268,12 +272,19 @@ img {
 
 /* Responsive */
 @media screen and (min-width: 410px) {
+  .login-sections {
+    padding-top: 200px;
+  }
   .login-sections h1 .title-break {
     display: inline;
   }
 }
 
 @media screen and (min-width: 500px) {
+  .login-sections {
+    padding-top: 100px;
+  }
+
   .login-sections h1 {
     font-size: 4rem;
   }
@@ -293,7 +304,7 @@ img {
 
 @media screen and (min-width: 687px) {
   .login-sections {
-    margin-left: 30%;
+    padding-left: 30%;
   }
 
   .login-sections h1 .title-break {
@@ -342,13 +353,19 @@ img {
 
 @media screen and (min-width: 1000px) {
   .login-container {
+    display: flex;
+
     flex-flow: row-reverse;
     width: 100vw;
+    height: 95vh;
     justify-content: flex-end;
+    align-items: flex-start;
+    align-content: center;
   }
 
   .login-sections {
-    margin-left: 30px;
+    padding-left: 8%;
+    padding-top: 100px;
     width: 45%;
   }
 
@@ -895,3 +912,4 @@ img {
   .tooltiptext.visible {
     display: block;
   }
+}
