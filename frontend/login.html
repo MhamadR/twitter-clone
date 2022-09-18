@@ -28,7 +28,7 @@
           <div
             class="login-btn btn btn-blue"
             id="signup"
-            onclick="removeClass('#signup-popup', 'hide'); removeClass('.mask', 'hide');"
+            onclick="showElement('#signup-popup'); showElement('.mask');"
           >
             Sign up with email
           </div>
@@ -44,7 +44,7 @@
           <div
             class="login-btn btn twitter-blue"
             id="signin"
-            onclick="removeClass('#signin-popup', 'hide'); removeClass('.mask', 'hide')"
+            onclick="showElement('#signin-popup'); showElement('.mask')"
           >
             Sign in
           </div>
@@ -85,7 +85,7 @@
     <div class="login-popup hide" id="signup-popup">
       <div
         class="close-popup-container"
-        onclick="addClass('#signup-popup', 'hide'); addClass('.mask', 'hide')"
+        onclick="hideElement('#signup-popup'); hideElement('.mask')"
       >
         <div class="close-popup"></div>
       </div>
@@ -109,7 +109,7 @@
     <div class="login-popup signin-popup hide" id="signin-popup">
       <div
         class="close-popup-container"
-        onclick="addClass('#signin-popup', 'hide'); addClass('.mask', 'hide')"
+        onclick="hideElement('#signin-popup'); hideElement('.mask')"
       >
         <div class="close-popup"></div>
       </div>
@@ -118,7 +118,7 @@
       </div>
       <div class="popup-content popup-content-sign-in">
         <h4>Sign in to Twitter</h4>
-        <form action="#">
+        <form action="#" method="post">
           <input type="email" placeholder="Email" />
           <input type="password" placeholder="Password" />
           <input
