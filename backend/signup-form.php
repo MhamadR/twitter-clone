@@ -1,25 +1,27 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] == "GET" && realpath(__FILE__) == realpath($_SERVER['SCRIPT_FILENAME'])) {
-	header('Location: ../index.html');
+	header('Location: ../frontend/login.html');
 }
 if(isset($_POST['signup'])){
 	$name = $_POST['name'];
+	$username = $_POST['user_name'];
 	$email = $_POST['email'];
 	$password = $_POST['password'];
 	$error = '';
 
-	if(empty($name) || empty($password) || empty($email)){
+	if(empty($username) || empty($name) || empty($password) || empty($email)){
 		$error = 'All fields are required';
 	}else {
+		$username = $getFromUser->checkInput($username);
 		$email = $getFromUser->checkInput($email);
-		$screenName = $getFromUser->checkInput($screenName);
+		$name = $getFromUser->checkInput($name);
 		$password = $getFromUser->checkInput($password);
 
 		if(!filter_var($email)) {
 			$error = 'Invalid email format';
 		}else if(strlen($name) > 20){
 			$error = 'Name must be between in 6-20 characters';
-		}else if(strlen($password) < 5){
+		}else if(strlen($password) < 10){
 			$error = 'Password is too short';
 		}else {
 			if($getFromUser->checkEmail($email) === true){
@@ -33,29 +35,34 @@ if(isset($_POST['signup'])){
 	}
 }
 ?>
-<form method="post" autocomplete="off">
-              <?php
-      if(isset($error)){
-            echo '<div role="alert"> '.$error.' </div>';
-      }
-    ?>    
-    <div>
-            <div>
-              <input type="text" name="name" placeholder="Name" />
-            </div>
-            <div>
-              <input type="email" name="email" placeholder="Email" />
-            </div>
-            <div>
-              <input type="password" name="password" placeholder="Password" />
-            </div>
-            <input type="submit" name="signup" Value="Signup">
-          </div>
-
-</form>
-<script type="text/javascript">
-        setTimeout(function() {
-            // Time to close
-            $('#alert').alert('close');
-        }, 4000);
-</script>
+<!-- Start of Sign up pop up -->
+<div class="mask hide"></div>
+    <div class="login-popup hide" id="signup-popup">
+      <div
+        class="close-popup-container"
+        onclick="hideElement('#signup-popup'); hideElement('.mask')"
+      >
+        <div class="close-popup"></div>
+      </div>
+      <div class="popup-content">
+        <h4>Create your account</h4>
+        <form method="post" action="#">
+			<?php
+			if(isset($error)){
+					echo '<div class="alert alert-danger" role="alert"style="width: 300px; margin:20px auto;text-align:center;">
+					'.$error.'
+					</div>';
+			}
+			?> 
+          <input type="text" placeholder="Name" />
+          <input type="text" placeholder="Username" />
+          <input type="email" placeholder="Email" />
+          <input type="password" placeholder="Password" />
+          <input
+            type="submit"
+            class="signup-btn btn btn-blue"
+            value="Sign up"
+          />
+        </form>
+      </div>
+    </div>

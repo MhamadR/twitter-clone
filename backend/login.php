@@ -1,7 +1,7 @@
 <?php
  
 if ($_SERVER['REQUEST_METHOD'] == "GET" && realpath(__FILE__) == realpath($_SERVER['SCRIPT_FILENAME'])) {
-  header('Location: ../index.html');
+  header('Location: ../frontend/login.html');
 }
 if(isset($_POST['login']) && !empty($_POST['login'])) {
 $email = $_POST['email'];
@@ -23,21 +23,37 @@ if(!empty($email) || !empty($password)) {
   }
 }
 ?>
-<div>
-    <form method="post" autocomplete="off">
-    <h1>Log in to twitter</h1>
-    <div>
-        <input name="email" type="text" placeholder="Email" />
-        <input name="password" type="password" placeholder="Password"/>
-    <input name="login" type="submit" value="login">
-    </div>
-<?php
 
-    if(isset($errorMsg)){
-        echo '<div role="alert"> '.$errorMsg.' </div>';
-    }
+<!-- Start of Sign in pop up -->
+<div class="login-popup signin-popup hide" id="signin-popup">
+    <div
+    class="close-popup-container"
+    onclick="hideElement('#signin-popup'); hideElement('.mask')"
+    >
+    <div class="close-popup"></div>
+    </div>
+    <div class="signin-logo">
+    <img src="./Images/twitter-logo.png" alt="twitter logo" />
+    </div>
+    <div class="popup-content popup-content-sign-in">
+    <h4>Sign in to Twitter</h4>
+    <form action="#" method="post">
+        <input type="email" placeholder="Email" />
+        <input type="password" placeholder="Password" />
+        <input
+        type="submit"
+        class="signin-btn btn btn-blue"
+        value="Sign up"
+        />
+    <?php
+
+        if(isset($errorMsg)){
+            echo '<div role="alert"> '.$errorMsg.' </div>';
+        }
     
-?> 
-    
+    ?>
     </form>
+    <p>Don't have an account? <span class="twitter-blue">Sign up</span></p>
+    </div>
 </div>
+<!-- End of Sign in pop up -->
