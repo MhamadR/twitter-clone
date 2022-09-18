@@ -1,5 +1,5 @@
 <?php
-include '../backend/index.php'; 
+include 'index.php'; 
 
 if(isset($_POST['like']) && !empty($_POST['like'])){
     $user_id  = $_SESSION['user_id'];

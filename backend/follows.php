@@ -1,5 +1,5 @@
 <?php
-include '../backend/index.php';
+include 'index.php';
 
 $getFromUser->preventAccess($_SERVER['REQUEST_METHOD']);
 
