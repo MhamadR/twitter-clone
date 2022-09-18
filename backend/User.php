@@ -1,28 +1,34 @@
 <?php 
     class User{
-        protected $conn;
+        protected $mysqli;
 
-        public function __construct($conn){
-            $this->conn = $conn;
+        public function __construct($mysqli){
+            $this->mysqli = $mysqli;
         }
 
         public function checkInput($data){
+            //convert all predefined characters to HTML entities
             $data = htmlspecialchars($data);
+
+            //remove spaces
             $data = trim($data);
+
+            //remove backslashes
             $data = stripcslashes($data);
+            
             return $data;
         }
 
         public function preventAccess($request,$currentFile,$current1){
             if($request == 'GET' && $currentFile == $current1){
-                header('location:'.BASE_URL.'index.html');
+                header('location:'.BASE_URL.'index.html');// the consistent part of your web address
             }
         }
 
         public function login($username, $email, $password){
             $passHash = hash("sha256", $_POST["password"]);
             $password .= "a";
-            $query = $this->mysqli->prepare("SELECT `username` FROM `users` WHERE `email` = :email AND `password` = :password");
+            $query = $this->mysqli->prepare("SELECT `user_name` FROM `users` WHERE `email` = $email AND `password` = $password");
             $query->bind_param("sss", $username, $email,$password);
             $query->execute();
 
@@ -31,7 +37,7 @@
 
             if($count > 0){
                 $_SESSION['username'] = $user->username;
-                header('Location: index.html');//?
+                header('Location: frontend/login.html');
             }
             else{
                 return false;
@@ -44,22 +50,22 @@
         public function register($name,$email,$password){
             $passHash = hash("sha256", $_POST["password"]);
             $pass .= "a";
-            $query = $this->mysqli->prepare("INSERT INTO `users` (`name`,`email`, `password`, `profile_image`, `profile_cover`) VALUES (? ,?, ?, 'images/defaultprofileimage.png', 'images/defaultCoverImage.png')");
+            $query = $this->mysqli->prepare("INSERT INTO users (`name`,`email`, `password`) VALUES (? ,?, ?)");
             $query->bind_param("sss", $name, $email,$password);
             $query->execute();
 
-            $user_id = $this->mysqli->lastInsertId();
+            $user_id = $this->mysqli->mysqli_insert_id($conn);//function return id generated with AUTO_INCREMENT from last query contain connection
             $_SESSION['user_id'] = $user_id;
         }
         public function userData($user_id){
-            $query = $this->mysqli->prepare('SELECT * FROM `users` WHERE `user_id` = $user_id');
+            $query = $this->mysqli->prepare("SELECT * FROM `users` WHERE `user_id` = $user_id");
             $query->bind_param('i', $user_id);
             $query->execute();
     
             return $query->fetch_assoc();
         }
         public function search($search){
-            $query = $this->mysqli->prepare("SELECT `user_id`,`username`,`name`,`profile_image`,`profile_cover` FROM `users` WHERE `username` LIKE ? OR `name` LIKE ?");
+            $query = $this->mysqli->prepare("SELECT `user_id`,`username`,`name`,`profile_image` FROM `users` WHERE `username` LIKE ? OR `name` LIKE ?");
             $query->bind_value(1, $search.'%');
             $query->bind_value(2, $search.'%');
             $query->execute();
@@ -78,10 +84,10 @@
 
             if($query = $this->mysqli->prepare($sql)){
                 foreach($field as $key =>$data){
-                    $query->bindValue(':'.$key,$data);
+                    $query->bind_value(':'.$key,$data);
                 }
                 $query->execute();
-                return $this->mysqli->lastInsertId();
+                return $this->mysqli->mysqli_insert_id($conn);
             }
             
         }
