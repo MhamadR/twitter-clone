@@ -1,4 +1,5 @@
 <?php 
+include "index.php";
     class User{
         protected $conn;
 

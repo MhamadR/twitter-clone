@@ -1,5 +1,4 @@
 <?php 
-	include '../index.php';
 	$getFromUser->preventAccess($_SERVER['REQUEST_METHOD'], realpath(__FILE__),realpath($_SERVER['SCRIPT_FILENAME']));
 
  	if(isset($_POST) && !empty($_POST)){
