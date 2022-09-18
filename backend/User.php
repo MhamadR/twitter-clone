@@ -137,11 +137,20 @@
             $query = $this->mysqli->prepare($sql);
             $query->execute();
         }
-        
+        public function uploadImage($file){
+            $filename   = $file['name'];
+
+            $jsonReceived = file_get_contents('php://input',$filename);
+
+            $body = json_decode($jsonReceived);
+            $filePath = "Images/".time().".png";
 
 
+            file_put_contents($filePath,base64_decode($body));
+
+            echo("uploaded");
+       }
     
-
 
     }
 
