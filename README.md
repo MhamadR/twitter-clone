@@ -1,7 +1,7 @@
-# twitter-clone
-## 1st Project
+# Twitter Clone
+## Collaborative project
 
-### This is an attempt to create a twitter clone according to the following features:
+### This is a Twitter clone created based on the following requested features:
 - The website should look exactly the same on the desktop (should be responsive too)
 - Users must be able to login, register, and edit profile.
 - Users must be able to tweet (280 chars) and attach pictures.
